@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 
 
@@ -7,7 +7,7 @@ class Task:
     id: int
     title: str
     completed: bool = False
-    created_at: datetime = datetime.now()
+    created_at: datetime = field(default_factory=datetime.now)
 
     def complete(self) -> None:
-        self.completed = False
+        self.completed = True

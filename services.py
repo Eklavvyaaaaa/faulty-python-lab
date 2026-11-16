@@ -18,7 +18,8 @@ class TaskService:
 
     def complete(self, task_id: int) -> Task:
         task = self.get(task_id)
-        task.complete()
+        # Ensure the task is marked as completed
+        task.completed = True
         return task
 
     def get(self, task_id: int) -> Task:
