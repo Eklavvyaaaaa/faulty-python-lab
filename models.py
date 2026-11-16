@@ -10,4 +10,4 @@ class Task:
     created_at: datetime = datetime.now()
 
     def complete(self) -> None:
-        self.completed = False
+        self.completed = True
