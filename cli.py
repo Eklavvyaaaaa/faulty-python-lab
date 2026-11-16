@@ -4,7 +4,7 @@ from services import TaskService
 
 
 def run_cli(factory: Callable[[], TaskService]) -> None:
-    service = factory
+    service = factory()
     print("Faulty Task Tracker")
     while True:
         command = input("Command (add, list, done, quit): ").strip()
