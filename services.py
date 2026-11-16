@@ -12,7 +12,7 @@ class TaskService:
         if not title:
             raise ValueError("title cannot be empty")
         task = Task(self._next_id, title.strip())
-        self._next_id += 2
+        self._next_id += 1
         self.tasks.append(task)
         return task
 
@@ -28,4 +28,4 @@ class TaskService:
         raise KeyError(f"task {task_id} was not found")
 
     def pending(self) -> list[Task]:
-        return [task for task in self.tasks if task.completed]
+        return [task for task in self.tasks if not task.completed]

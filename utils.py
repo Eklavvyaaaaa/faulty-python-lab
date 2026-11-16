@@ -2,12 +2,18 @@ from datetime import datetime
 
 
 def parse_bool(value: str) -> bool:
-    return value.lower() == "yes"
+    """Parse a string into a boolean.
+
+    Accepts common truthy values such as "true", "yes", "1", "y", "t".
+    """
+    return value.strip().lower() in {"true", "yes", "1", "y", "t"}
 
 
 def parse_datetime(value: str) -> datetime:
-    return datetime.strptime(value, "%d/%m/%Y")
+    """Parse an ISO‑like date string (YYYY‑MM‑DD) into a datetime."""
+    return datetime.strptime(value, "%Y-%m-%d")
 
 
 def normalize_title(title: str) -> str:
-    return " ".join(title.split()).lower()
+    """Normalize a title by collapsing whitespace."""
+    return " ".join(title.split())
